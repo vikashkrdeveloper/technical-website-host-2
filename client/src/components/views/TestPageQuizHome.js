@@ -4,8 +4,7 @@ import MainFooter from '../partials/MainFooter'
 import { useNavigate } from 'react-router-dom';
 import Loader from '../partials/Loader';
 
-
-function TestPageHome() {
+function TestPageQuizHome() {
     const [isFullScreen, setFullScreen] = useState(false);
     const [base64String, setbase64string] = useState('');
     const [ErrorUser, SetErrorUser] = useState(false);
@@ -19,7 +18,7 @@ function TestPageHome() {
         try {
             SetIsLoadingUser(true);
             SetErrorUser(false);
-            const res = await fetch('/participant/coding/auth/data', {
+            const res = await fetch('/participant/quiz/auth/data', {
                 method: 'GET',
             })
             if (res.status === 200) {
@@ -32,7 +31,7 @@ function TestPageHome() {
                 }
                 SetIsLoadingUser(false)
             } else if (res.status === 403) {
-                navigate('/coding/participant/login')
+                navigate('/quiz/participant/login')
             }
         } catch (error) {
             SetErrorUser(true);
@@ -46,7 +45,7 @@ function TestPageHome() {
 
     }
     if (ErrorUser) {
-        navigate('/coding/participant/login')
+        navigate('/quiz/participant/login')
     }
     const enterFullScreen = () => {
         const element = document.documentElement;
@@ -67,7 +66,7 @@ function TestPageHome() {
     const onHandelClickEvent = () => {
         let conformation = window.confirm(`Are you sure ${data.name} to enter test page`);
         if (conformation) {
-            navigate('/technical/events/coding/contest/terms/conditions');
+            navigate('/technical/events/quiz/contest/terms/conditions');
             setFullScreen(!isFullScreen);
             if (!isFullScreen) {
                 enterFullScreen();
@@ -98,4 +97,4 @@ function TestPageHome() {
     )
 }
 
-export default TestPageHome
+export default TestPageQuizHome

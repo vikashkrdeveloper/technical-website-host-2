@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import HalfLoader from '../HalfLoader';
 import * as XLSX from 'xlsx';
-function Total_Participant() {
+function Admin_Panel_CodingRegister_Data() {
     const [getdata, setdata] = useState([]);
     const [IsLoading, SetIsLoading] = useState(false);
     const [Error, SetError] = useState(false);
@@ -10,7 +10,7 @@ function Total_Participant() {
         try {
             SetIsLoading(true);
             SetError(false);
-            const res = await fetch('/api/participant/member/list', {
+            const res = await fetch('/api/participant/coding/register/data', {
                 method: 'GET'
             })
             const data = await res.json();
@@ -27,7 +27,7 @@ function Total_Participant() {
 
             const verify = window.confirm("Are you sure to delete data?");
             if (verify) {
-                const res = await fetch(`/api/total/participant/delete/id/${id}`, { method: 'DELETE' });
+                const res = await fetch(`/api/coding/participant/delete/id/${id}`, { method: 'DELETE' });
                 if (res.status === 200) {
                     toast.success('Data Deleted sucessfully');
                     totalteamlist();
@@ -65,7 +65,7 @@ function Total_Participant() {
     return (
         <>
             <div className=' w-[100%] h-[30px] flex justify-center items-center gap-10'>
-                <h1 className=' text-[30px] text-[#1c1b2a] font-[700] uppercase'>Total Participant Member</h1>
+                <h1 className=' text-[30px] text-[#1c1b2a] font-[700] uppercase'>Coding Participant Member</h1>
                 <button className='w-[150px] h-[40px] border-[1px] border-[#29445c]  bg-[#1f4c59] rounded-[5px] shadow-inner text-[#fff]' onClick={exportToExcel}>Export Excel</button>
 
             </div>
@@ -91,7 +91,7 @@ function Total_Participant() {
                                 </span>
                             </div>
                             <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
-                                <b className='text-[#3fff65]' > Name {index + 1}  : </b><p>{element.name === '' ? 'No participant' : element.name}</p>
+                                <b className='text-[#3fff65]' > Name {index + 1}  : </b><p>{element.participantName === '' ? 'No participant' : element.participantName}</p>
                             </div>
                             <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
                                 <b className='text-[#3fff65]' >Email Id {index + 1}  : </b><p>{element.emailid === '' ? 'No participant' : element.emailid}</p>
@@ -100,13 +100,16 @@ function Total_Participant() {
                                 <b className='text-[#3fff65]' >MobileNumber {index + 1}: </b><p>{element.mobilenumber}</p>
                             </div>
                             <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
+                                <b className='text-[#3fff65]' >Registration Number {index + 1}: </b><p>{element.registration_number}</p>
+                            </div>
+                            <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
                                 <b className='text-[#3fff65]' >Department {index + 1} : </b><p>{element.branch}</p>
                             </div>
                             <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
                                 <b className='text-[#3fff65]' >AdmissionYear {index + 1} : </b><p>{element.AdmissionYear}</p>
                             </div>
                             <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
-                                <b className='text-[#3fff65]' >EventSelectParticipant {index + 1} : </b><p>{element.EventSelectParticipant}</p>
+                                <b className='text-[#3fff65]' >EventSelectParticipant {index + 1} : </b><p>{element.EventName}</p>
                             </div>
                         </div>
                     ))}
@@ -116,4 +119,4 @@ function Total_Participant() {
     )
 }
 
-export default Total_Participant
+export default Admin_Panel_CodingRegister_Data

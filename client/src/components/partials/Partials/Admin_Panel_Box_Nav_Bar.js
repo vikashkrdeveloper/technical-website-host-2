@@ -9,7 +9,7 @@ function Admin_Panel_Box_Nav_Bar(props) {
                     {props.icon}
                 </span>
                 <div>
-                    <h3>{props.text}</h3>
+                    <h3  className='w-[190px] truncate'>{props.text}</h3>
                 </div>
             </NavLink>
         </>

@@ -13,7 +13,7 @@ function ContestListBox(props) {
                 <div className=' w-[100%] h-[80px] flex   pr-[10px] justify-end  items-center'>
                     <NavLink to={props.url} className='w-[160px] gap-2 h-[45px] rounded-[5px] text-[14px] font-[600] hover:bg-[#182d3b]  transition ease-in-out delay-150  border-[#2a4651] text-[#fff] border-[1px] flex justify-center items-center'>
                         Start contest
-                        <span class="material-symbols-outlined animate-pulse text-[#ffdd00]">
+                        <span className="material-symbols-outlined animate-pulse text-[#ffdd00]">
                             start
                         </span>
                     </NavLink>

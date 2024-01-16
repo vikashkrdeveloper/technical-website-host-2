@@ -35,6 +35,8 @@ function Admin_Panel_Box() {
                         <div className="nav-upper-options">
 
                             <Admin_Panel_Box_Nav_Bar link='/admin/dashboard' text='Dashboard' icon='dashboard' />
+                            <Admin_Panel_Box_Nav_Bar link='/admin/dashboard/add/quiz/user-id/' text='Quiz Participant Id Add' icon='person_add' />
+                            <Admin_Panel_Box_Nav_Bar link='/admin/dashboard/add/coding/user-id/' text='Coding Participant Id Add' icon='group_add' />
                             <Admin_Panel_Box_Nav_Bar link='/admin/dashboard/add/mcq-question' text='Mcq-question Add' icon='note_add' />
                             <Admin_Panel_Box_Nav_Bar link='/admin/dashboard/add/numerical-question' text='Num-question Add' icon='add_task' />
                             <Admin_Panel_Box_Nav_Bar link='/admin/dashboard/api/answer/numerical-question/mcq-question' text='Answer' icon='checklist' />

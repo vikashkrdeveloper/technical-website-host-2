@@ -88,6 +88,7 @@ function Answer_Submit_Show_Admin_Panel() {
                     <div key={index} className='w-[100%] h-[auto]  flex justify-center items-center '>
                         <div className='w-[90%] h-[auto] bg-[#150f15c4] text-[#fff] rounded-[6px] p-[20px]'>
                             <div className='w-[100%] h-[auto] flex justify-end items-center gap-4'>
+
                                 <span className="material-symbols-outlined cursor-pointer text-[#ffffff] font-[500]" onClick={() => { answercopy(element) }} >
                                     content_copy
                                 </span>
@@ -110,18 +111,40 @@ function Answer_Submit_Show_Admin_Panel() {
                             <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
                                 <b className='text-[#3fff65]' >Remaining Times : </b><p>{element.submittime[0]} Miniutes {element.submittime[1]} Second {element.submittime[2]} Milliseconds</p>
                             </div>
+                            <div className='w-[100%] h-[28px] flex justify-start items-center gap-2  uppercase'>
+                                <b className='text-[#3fff65]' >Correct Answer : </b><p>{element.correctanswer}</p>
+                            </div>
                             <div className='w-[100%] h-[auto] flex justify-start items-start gap-2  '>
                                 <div className=' w-[80px]'><b className='text-[#3fff65]  uppercase'>Answer : </b></div><div className='w-[700px] h-[auto] p-[10px] bg-[#ffffffb5] text-[#000]  rounded-[5px]'>{element.answer}</div>
                             </div>
-                            <form onSubmit={datasubmit} className='w-[100%] h-[auto] flex justify-end items-center gap-4 mt-[6px]'>
-                                <input type='text' name='Answermarks' value={getAnswermarks} onChange={(event) => { setAnswermarks(event.target.value) }} className='p-[10px] h-[36px] w-[150px] rounded-[4px] outline-none text-[#000] text-[14px] font-[600]' placeholder='Enter the marks for this question..' />
-                                <button className=' w-[80px] h-[36px] rounded-[4px] flex justify-center items-center p-[10px] bg-[#008523d4]'>
-                                    Add
-                                    <span className="material-symbols-outlined cursor-pointer text-[#ffffff] font-[500]" >
-                                        add
-                                    </span>
-                                </button>
-                            </form>
+                            <div className='w-[100%] h-[45px] flex justify-end items-center'>
+
+                                {
+                                    element.answer === element.correctanswer ? (
+                                        <div className='gap-[10px] flex justify-center items-center'>
+                                            <p className="cursor-pointer text-[#ffffff] font-[500]" >
+                                                1.5
+                                            </p>
+                                            <span className="material-symbols-outlined cursor-pointer text-[30px] text-[#27d038] font-[500]" >
+                                                check
+                                            </span>
+
+                                        </div>
+
+                                    ) : (
+                                        <div className='gap-[10px] flex justify-center items-center'>
+                                            <p className="cursor-pointer text-[#ffffff] font-[500]" >
+                                                0
+                                            </p>
+                                            <span className="material-symbols-outlined cursor-pointer text-[30px] text-[#ff4534] font-[500]" >
+                                                dangerous
+                                            </span>
+
+                                        </div>
+
+                                    )
+                                }
+                            </div>
                         </div>
                     </div>
                 ))}
