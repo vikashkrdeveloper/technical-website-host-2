@@ -1,5 +1,5 @@
 const express = require('express');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const app = express();
